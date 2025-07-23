@@ -2,7 +2,7 @@
 
 namespace SMS_OTP.Controller;
 
-[Route("api/otp")]
+[Route("api1/otp")]
 public class OtpController : ControllerBase
 {
     /*[HttpPost("verify")]
