@@ -1,28 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Data;
+using Microsoft.AspNetCore.Mvc;
+using SMS_OTP.Repository.Interfaces;
 
 namespace SMS_OTP.Controller;
 
-[Route("api1/otp")]
-public class OtpController : ControllerBase
+[Route("api/otp")]
+public class OtpController(IRepositoryManager repository) : ControllerBase
 {
-    /*[HttpPost("verify")]
-    public IActionResult Verify([FromBody] VerifyObj verifyObj)
-    {
-        return Ok();
-    }*/
-
-    /*[HttpGet("generate")]
-    public IActionResult Generate([FromBody] GenerateRequest request)
-    {
-        return Ok();
-    }*/
     
-    
-    
+    private int counter = 0;
     [HttpGet("generate")]
-    public IActionResult Generate()
+    public async Task<IActionResult> Generate()
     {
-        return Ok();
+        var sampleData = new Random().Next();
+        await repository.SetCacheAsync(counter.ToString(), sampleData);
+        counter++;
+        return Ok(sampleData);
     }
 
     [HttpPost("verify")]
@@ -30,17 +23,4 @@ public class OtpController : ControllerBase
     {
         return Ok();
     }
-}
-
-
-public class GenerateRequest(string userId, int tenorId)
-{
-    public string UserId { get; set; } = userId;
-    public int TenorId { get; set; } = tenorId;
-}
-
-public class VerifyRequest(string userId, int code)
-{
-    public string UserId { get; set; } = userId;
-    public int Code { get; set; } = code;
 }

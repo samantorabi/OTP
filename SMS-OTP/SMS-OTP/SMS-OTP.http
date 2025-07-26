@@ -1,4 +1,4 @@
-@SMS_OTP_HostAddress = http://localhost:5000
+@SMS_OTP_HostAddress = http://localhost:8081
 
 GET {{SMS_OTP_HostAddress}}/api/otp/generate
 
