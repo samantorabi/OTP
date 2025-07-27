@@ -52,7 +52,7 @@ export const options = {
 - **Throughput**: 1,036.83 req/s
 - **Avg. Response Time**: 709.98 ms
 - **95th Percentile**: 1,950.00 ms
-- **Failure Rate**: 8.82%
+- **Failure Rate**: 99.82%
 
 ## Comparison of Results
 
@@ -63,7 +63,7 @@ export const options = {
 | Avg. Response Time (ms)       | 130.13      | 139.43         | 245.67           | 709.98                |
 | 95th Percentile Response Time | 343.86      | 376.34         | 512.45           | 1,950.00              |
 | Max. Response Time (ms)       | 801.90      | 1,210          | 2,340            | 2,740                 |
-| Failure Rate                  | 0.00%       | 0.00%          | 1.25%            | 8.82%                |
+| Failure Rate                  | 0.00%       | 0.00%          | 1.25%            | 99.82%                  |
 
 **Conclusion**:
 - **Minimal API** offers the best performance with the highest throughput and lowest response times due to its minimal overhead.
