@@ -27,6 +27,16 @@ public class RepositoryManager : IRepositoryManager
 
         _redis = ConnectionMultiplexer.Connect(option);
         _redisDb = _redis.GetDatabase();
+
+        //CreateTable();
+    }
+
+    private async void CreateTable()
+    {
+        var query = "CREATE TABLE my_table (id UUID PRIMARY KEY,tenant_id UUID NOT NULL,config TEXT,counter INTEGER NOT NULL);";
+        await RunQueryAsync(query);
+        //var query1 = "INSERT INTO my_table (id, tenant_id, config, counter)VALUES (gen_random_uuid(),    gen_random_uuid(),'Sample config string',42);";
+        //await RunQueryAsync(query1);
     }
 
     public async Task<T> GetCacheAsync<T>(string key)
